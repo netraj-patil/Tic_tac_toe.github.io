@@ -1,0 +1,123 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    color: #0c0909;
+    font-family: sans-serif;
+    justify-content: center;
+}
+/*cyan color :- #14BDAC*/
+.container{
+    background: #545454;
+    margin: 50px;
+    padding: 50px;
+    border-radius: 25px;
+}
+
+.title{
+    text-align: center;
+}
+
+.title span{
+    color: #F2EBD3;
+}
+
+.status-action{
+    display: flex;
+    height: 30px;
+    margin-top: 25px;
+    font-size: 25px;
+    justify-content: space-around;  /*this will put space equally between the elements*/
+}
+
+.status span{
+    color: #F2EBD3;
+}
+
+.reset{
+    cursor: pointer;    /*so that when a cursor is brought on it it changes to pointer*/
+}
+
+.reset:hover{
+    color: #F2EBD3;
+}
+/*dark cyan - #0da192*/
+.game-grid{
+    background: #444444;
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);  /*this property creates columns. the repeat function tells 
+    that we want 3 column in its first parameter, and 1fr represents that the grid must be equally divided*/
+    grid-template-rows: repeat(3, 1fr);
+
+    grid-gap: 15px; /*so that there is a gap of 15 px between each cell*/
+    margin-top: 50px;
+}
+
+.game-cell{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;    /*to center the elements horizontally*/
+    align-items: center;    /*to center the elements vertically*/
+    background: #545454;
+    height: 200px;
+    width: 200px;
+}
+
+.x,.o{
+    cursor: auto;
+}
+
+.x::before{ /*The ::before selector inserts something before the content of each selected element(s).*/
+    content: '×';   /*Use the content property to specify the content to insert.*/
+    font-size: 200px;
+}
+
+
+.o::before{
+    content: '○';
+    color: #F2EBD3;
+    font-size: 225px;
+}
+
+.won::before{
+    color: #2effff;
+}
+
+@media only screen and (max-width:1024px){
+    .game-grid{
+        margin-top: 25px;
+        grid-gap: 18px;
+    }
+    .game-cell{
+        height: 150px;
+        width: 150px;
+    }
+    .x::before{
+        font-size: 150px;
+    }
+    .o::before{
+        font-size: 170px;
+    }
+}
+
+@media only screen and (max-width:540px){
+    .container{
+        margin: 25px;
+        padding: 25px;
+    }
+    .game-cell{
+        height: 100px;
+        width: 100px;
+    }
+    .x::before{
+        font-size: 100px;
+    }
+    .o::before{
+        font-size: 125px;
+    }
+}
